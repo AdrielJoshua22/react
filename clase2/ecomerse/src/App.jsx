@@ -6,6 +6,8 @@ import { Formulario } from './components/Formulario/Formulario'
 import { Titulo } from './components/Titulo/Titulo'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from './components/CartWidget/CartWidget';
+import { Contador } from './components/Contador/Contador';
+import { Categorias } from './components/Categorias/Categorias';
 
 function App() {
 
@@ -15,7 +17,9 @@ function App() {
     <div className="App" >
       <NavBar/>
       <Titulo titulo='App' subTitulo='App'/>
-      <Formulario/>
+      {/* <Formulario/> */}
+      <Contador stock = {10} inicial = {1}  />
+      <Categorias/>
     </div>
   )
 }
