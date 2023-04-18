@@ -3,9 +3,17 @@ import { useState, useEffect } from "react"
 
 export const Contador = ({ stock, inicial }) => {
     const [contador, setContador] = useState(inicial);
+    const [color, setColor] = useState("white");
 
     useEffect (()=>{
         console.log("se ejecuto UseEffect");
+
+        if(contador > 5){
+            setColor("red")
+        }else{
+            setColor("white");
+        }
+
     },[contador]);
 
     const aumentarContador = () => {
@@ -28,7 +36,7 @@ export const Contador = ({ stock, inicial }) => {
             <button onClick={disminuirContador}>-</button>
             <strong>{contador}</strong>
             <button onClick={aumentarContador}>+</button>
-            <button onClick={ agregarAlCarrito }>Agregar al Carrito</button>
+            <button onClick={ agregarAlCarrito } style={{color: color}}>Agregar al Carrito</button>
         </div>
     )
 }
