@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react"
+import Button from 'react-bootstrap/Button';
 
 export const Contador = ({ stock, inicial }) => {
     const [contador, setContador] = useState(inicial);
@@ -33,10 +34,10 @@ export const Contador = ({ stock, inicial }) => {
     return (
         <div>
             <h2>Contador</h2>
-            <button onClick={disminuirContador}>-</button>
+            <Button variant="primary" onClick={disminuirContador}>-</Button>
             <strong>{contador}</strong>
-            <button onClick={aumentarContador}>+</button>
-            <button onClick={ agregarAlCarrito } style={{color: color}}>Agregar al Carrito</button>
+            <Button variant="primary" onClick={aumentarContador}>+</Button>
+            <Button variant="primary" onClick={ agregarAlCarrito } style={{color: color}}>Agregar al Carrito</Button>
         </div>
     )
 }

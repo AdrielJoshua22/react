@@ -9,6 +9,9 @@ import CartWidget from './components/CartWidget/CartWidget';
 import { Contador } from './components/Contador/Contador';
 import { Categorias } from './components/Categorias/Categorias';
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
+import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer"
+import { JsonPlaceHolder } from "./components/Fetch/JsonPlaceHolder";
+
 
 
 function App() {
@@ -16,14 +19,15 @@ function App() {
 
 
   return (
-    <div>
+    <div className="appp">
       <NavBar />
-
       <Titulo titulo='App' subTitulo='App' />
       {/* <Formulario/> */}
       <Contador stock={10} inicial={1} />
       <Categorias />
-      <ItemListContainer/>
+      <ItemListContainer />
+      <ItemDetailContainer />
+      <JsonPlaceHolder/>
     </div>
 
   )

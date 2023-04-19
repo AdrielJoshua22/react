@@ -11,8 +11,8 @@ import { Contador } from "../Contador/Contador"
             <p>precio{precio}</p>
             <p>ID:{id}</p>
             <p>Tamaño:{tamaño}</p>
-          <Contador/>
-            <button>Ver Detalles </button>
+          <Contador stock={10} inicial={1}/>
+            <button className="cardProducto" >Ver Detalles </button>
 
 
         </div>

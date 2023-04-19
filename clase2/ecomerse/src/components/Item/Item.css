@@ -1,12 +1,13 @@
 .cardProducto{
-    background-color: #cfaeae;
-    border-radius: 10px;
-    width: 20rem;
+    background-color: #c4ca91;
+    border-radius: 30px;
+    width: 18rem;
     padding: 1rem;
     margin: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 5px solid black;
 }
 
 .imgProducto{
