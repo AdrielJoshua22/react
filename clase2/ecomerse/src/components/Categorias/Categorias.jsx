@@ -14,7 +14,7 @@ import React, { useState, useEffect } from 'react'
 
   return (
     <div>
-        <h2>Categorias de Productos</h2>
+        <h2 className='Categorias'>Categorias de Productos</h2>
         <button onClick={ ()=> handleClick('Futbol')}>Futbool</button>
         <button onClick={ ()=> handleClick('Animales')}>Animales</button>
         <button onClick={ ()=> handleClick('Anime')}>Anime</button>
@@ -22,5 +22,4 @@ import React, { useState, useEffect } from 'react'
     </div>
   )
 }
-
 

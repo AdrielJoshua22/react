@@ -33,10 +33,10 @@ export const Contador = ({ stock, inicial }) => {
 
     return (
         <div>
-            <h2>Contador</h2>
-            <Button variant="primary" onClick={disminuirContador}>-</Button>
+   
+            <Button variant="secondary" onClick={disminuirContador}>-</Button>
             <strong>{contador}</strong>
-            <Button variant="primary" onClick={aumentarContador}>+</Button>
+            <Button variant="secondary" onClick={aumentarContador}>+</Button>
             <Button variant="primary" onClick={ agregarAlCarrito } style={{color: color}}>Agregar al Carrito</Button>
         </div>
     )
