@@ -14,7 +14,7 @@ export const ItemListContainer = () => {
   useEffect(() => {
     getProductos()
       .then(response => setProductos(response))
-      .catch(error => console.error(error))
+      
   }, [])
 
   return (

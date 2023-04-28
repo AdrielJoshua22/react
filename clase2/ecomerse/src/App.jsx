@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate,  } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, } from "react-router-dom";
 
 import './App.css'
 import NavBar from './components/Menu/NavBar';
@@ -12,7 +12,9 @@ import { ItemListContainer } from "./components/ItemListContainer/ItemListContai
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer"
 import { JsonPlaceHolder } from "./components/Fetch/JsonPlaceHolder";
 import CartWidget from "./components/CartWidget/CartWidget";
- 
+import { CartContexProvider } from "./context/CartContext";
+
+
 
 function App() {
 
@@ -20,23 +22,27 @@ function App() {
 
   return (
     <>
-    <Router>
-      <NavBar/>
-      <Titulo titulo='App' subTitulo='App' />
+      <CartContexProvider>
 
-      <Routes>
+        <Router>
+          <NavBar />
+          <Titulo titulo='App' subTitulo='App' />
 
-        <Route path='/' element={<ItemListContainer />} />
-        <Route path='/categoria/:categoria' element={<ItemListContainer />} />
-        <Route path='/cart' elemeont={<CartWidget />} />
-        <Route path='/detail/:pid' element={<ItemDetailContainer />} />
+          <Routes>
 
-        <Route path='/masdetalle' element={<JsonPlaceHolder />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+            <Route path='/' element={<ItemListContainer />} />
+            <Route path='/categoria/:categoria' element={<ItemListContainer />} />
+            <Route path='/cart' elemeont={<CartWidget />} />
+            <Route path='/detail/:pid' element={<ItemDetailContainer />} />
+
+            <Route path='/masdetalle' element={<JsonPlaceHolder />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
 
 
-    </Router>
+        </Router>
+      </CartContexProvider>
+
     </>
 
   )
