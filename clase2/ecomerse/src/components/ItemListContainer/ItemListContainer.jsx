@@ -13,9 +13,15 @@ export const ItemListContainer = () => {
 
   useEffect(() => {
     getProductos()
-      .then(response => setProductos(response))
+      .then(response => {
+        if(categoria){
+          setProductos(response.filter((prod)=> prod.categoria === categoria))
+        }else{
+          setProductos(response)
+        }
+      })
       
-  }, [])
+  }, [categoria])
 
   return (
     <div>
@@ -28,5 +34,3 @@ export const ItemListContainer = () => {
     
   )
 }
-
-
