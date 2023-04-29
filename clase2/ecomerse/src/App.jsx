@@ -5,15 +5,17 @@ import NavBar from './components/Menu/NavBar';
 
 import { Titulo } from './components/Titulo/Titulo'
 import 'bootstrap/dist/css/bootstrap.min.css';
-/* import CartWidget from './components/CartWidget/CartWidget';
-import { Contador } from './components/Contador/Contador';
-import { Categorias } from './components/Categorias/Categorias'; */
+
+/* import { Contador } from './components/Contador/Contador';
+import { Categorias } from './components/Categorias/Categorias'; */ 
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer"
 import { JsonPlaceHolder } from "./components/Fetch/JsonPlaceHolder";
-import CartWidget from "./components/CartWidget/cartWidget";
+
 
 import { CartContexProvider } from "./context/CartContext";
+import { CartWidget } from "./components/CartWidget/cartWidget";
+
 
 
 
