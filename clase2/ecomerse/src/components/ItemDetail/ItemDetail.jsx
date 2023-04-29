@@ -8,7 +8,7 @@ export const ItemDetail = ({ id, nombre, precio, tamaño, img, }) => {
             <h3>Tamaño: {tamaño} </h3>
             <h3>Id: {id} </h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa earum recusandae maxime perferendis dolorem suscipit magnam illo vitae, sunt natus?</p>
-            <img src= {img} alt= {nombre} />
+            <img src= {img}  />
 
 
         </div>

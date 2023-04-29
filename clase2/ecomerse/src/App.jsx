@@ -11,7 +11,8 @@ import { Categorias } from './components/Categorias/Categorias'; */
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer"
 import { JsonPlaceHolder } from "./components/Fetch/JsonPlaceHolder";
-import CartWidget from "./components/CartWidget/CartWidget";
+import CartWidget from "./components/CartWidget/cartWidget";
+
 import { CartContexProvider } from "./context/CartContext";
 
 

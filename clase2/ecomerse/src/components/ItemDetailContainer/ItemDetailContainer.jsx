@@ -10,7 +10,7 @@ export const ItemDetailContainer = () => {
     console.log(pid)
 
     useEffect(() => {
-        getUnProducto(1)
+        getUnProducto(pid)
             .then(res => setProductos(res))
     }, [])
 
