@@ -1,5 +1,5 @@
 .contenedorItem{
-    background-color: #c4ca91;
+    background-color: #ffffff;
     text-align: center;
     border: 5px solid black;
     margin: 3rem;
@@ -8,7 +8,9 @@
 }
 
 img{
+    
     border: 5px solid black;
     border-radius: 30px;
     width: 50vw;
+    
 }
