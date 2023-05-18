@@ -47,6 +47,12 @@
   color: red;
 } */
 
-h1,h2{
+@import url('https://fonts.googleapis.com/css2? family= Montserrat:ital,wght@0,300;1,400 & display=swap');
+
+ h1{
+  font-size: 300pX;
+  font-family:  'Montserrat', sans-serif;
   text-align: center;
-}
+  
+} 
+

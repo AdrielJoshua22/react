@@ -1,25 +1,26 @@
 import React from "react"
 import "./Item.css"
-import { Contador } from "../Contador/Contador"
 import { Link } from "react-router-dom"
 
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
  export const Item = ({ id, nombre, precio, tamaño, img }) => {
-    return (
-        <div className="cardProducto">
-            <img className="imgProducto" src={img} alt={nombre} />
-            <h3>nombre: {nombre}</h3>
-            <p>precio{precio}</p>
-            <p>ID:{id}</p>
-            <p>Tamaño:{tamaño}</p>
-          <Contador stock={10} inicial={1}/>
-        <Link to={`/detail/${id}`}>
-            <button className="cardProducto" >Ver Detalles </button>
+  return (
+    <Card style={{ width: '18rem' }}>
+      <img className="imgProducto" src={img} alt={nombre} />
+      <Card.Body>
+        <Card.Title>NOMBRE: {nombre}</Card.Title>
+        <Card.Text>
+          Some quick example 
+        </Card.Text>
+         <Link to={`/detail/${id}`}>
+         <Button variant="primary">Detalle</Button>
         </Link>
 
-
-        </div>
-    )
+      </Card.Body>
+    </Card>
+  );
 }
 
 

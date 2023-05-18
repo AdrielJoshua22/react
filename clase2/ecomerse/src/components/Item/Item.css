@@ -1,18 +1,10 @@
-.cardProducto{
-    background-color: #c4ca91;
-    border-radius: 30px;
+.card {
+    background-color: #fffffb;
     width: 18rem;
-    padding: 1rem;
+    padding: 1%;
     margin: 1rem;
     display: flex;
-    flex-direction: column;
+    border-radius: 10px;
     align-items: center;
-    border: 5px solid black;
-}
-
-.imgProducto{
-    border-radius: 15%;
-    width: 80%;
-
-   
+    border: 1px solid rgb(15, 15, 15);
 }

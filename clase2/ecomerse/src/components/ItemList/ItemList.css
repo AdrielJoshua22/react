@@ -1,4 +1,11 @@
-.contenedorProductos{
+.contenedorProductos {
     display: flex;
-    flex-wrap:wrap; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.imgProducto {
+    height: 300px;
+    width: 275px;
+    border: 1px solid black;
 }
