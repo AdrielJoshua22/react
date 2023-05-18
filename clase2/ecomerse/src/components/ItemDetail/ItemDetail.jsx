@@ -13,7 +13,7 @@ export const ItemDetail = ({ id, nombre, precio, tamaño, img, }) => {
     const {addToCart} = useCartContext()
 
     const onAdd =(cantidad)=>{
-    addToCart({...productos, cantidad})
+    addToCart({ id, nombre, precio, tamaño, img, cantidad})
     setIsCant(true)
 }
     return (

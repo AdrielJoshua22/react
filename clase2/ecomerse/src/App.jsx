@@ -6,8 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer"
 import { JsonPlaceHolder } from "./components/Fetch/JsonPlaceHolder";
-import { CartWidget } from "./components/CartWidget/cartWidget";
+/* import { CartWidget } from "./components/CartWidget/cartWidget"; */
 import { CartContextProvider } from "./context/CartContext";
+import { CartContainer } from "./components/Cart/Cart";
 
 
 
@@ -35,7 +36,7 @@ function App() {
 
             <Route path='/' element={<ItemListContainer />} />
             <Route path='/categoria/:categoria' element={<ItemListContainer />} />
-            <Route path='/cart' elemeont={<CartWidget />} />
+            <Route path='/cart' elemeont={<CartContainer />} />
             <Route path='/detail/:pid' element={<ItemDetailContainer />} />
 
             <Route path='/masdetalle' element={<JsonPlaceHolder />} />
