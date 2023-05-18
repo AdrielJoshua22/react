@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { ItemList } from '../ItemList/ItemList';
 import { getProductos } from '../../asyncmock';
 import {  useParams } from 'react-router-dom';
+import { Loading } from '../Loading/Loading';
 /* import {doc, getDoc,getFirestore} from 'firebase'; */
 
 export const ItemListContainer = () => {
@@ -46,7 +47,7 @@ getDoc(queryDoc)
     
     isLoading ?
 
-        <h2>cargando</h2>
+       <Loading/>
     :
     <ItemList productos={productos} />
    

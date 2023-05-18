@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import Button from 'react-bootstrap/Button';
 
-export const Contador = ({ stock, inicial }) => {
+export const Contador = ({ stock, inicial, onAdd }) => {
     const [contador, setContador] = useState(inicial);
     const [color, setColor] = useState("white");
 
@@ -37,7 +37,7 @@ export const Contador = ({ stock, inicial }) => {
             <Button variant="secondary" onClick={disminuirContador}>-</Button>
             <strong>{contador}</strong>
             <Button variant="secondary" onClick={aumentarContador}>+</Button>
-            <Button variant="primary" onClick={ agregarAlCarrito } style={{color: color}}>Agregar al Carrito</Button>
+            <Button variant="primary" onClick={ ()=>{onAdd(onAdd) }}>Agregar al Carrito</Button>
         </div>
     )
 }
