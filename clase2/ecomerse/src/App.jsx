@@ -36,7 +36,7 @@ function App() {
 
             <Route path='/' element={<ItemListContainer />} />
             <Route path='/categoria/:categoria' element={<ItemListContainer />} />
-            <Route path='/cart' elemeont={<CartContainer />} />
+            <Route path='/cart' element={<CartContainer />} />
             <Route path='/detail/:pid' element={<ItemDetailContainer />} />
 
             <Route path='/masdetalle' element={<JsonPlaceHolder />} />

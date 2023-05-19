@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 export const Item = memo(
-  ({ id, nombre, precio, tamaño, img }) => {
+  ({ id, nombre,img }) => {
     return (
       <Card style={{ width: '18rem' }}>
         <img className="imgProducto" src={img} alt={nombre} />
