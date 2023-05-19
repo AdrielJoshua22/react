@@ -1,59 +1,54 @@
 import { useState, useEffect } from 'react'
-
 import { ItemList } from '../ItemList/ItemList';
-import { getProductos } from '../../asyncmock';
-import {  useParams } from 'react-router-dom';
+/* import { getProductos } from '../../asyncmock'; */
+import { useParams } from 'react-router-dom';
 import { Loading } from '../Loading/Loading';
-/* import {doc, getDoc,getFirestore} from 'firebase'; */
+import { collection, doc, getDoc, getDocs, getFirestore, limit, orderBy, query, where  } from 'firebase/firestore'
 
 export const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
+  const [producto, setProducto] = useState({}); 
   const [isLoading, setIsLoading] = useState(true)
-  const {categoria} = useParams()
-  console.log(categoria)
-
-
-/* useEffect(()=>{
-const dbFirestore = getFirestore()
-const queryDoc = doc(dbFirestore,'productos', '77TCndNco4xO4QKw0wob')
-
-getDoc(queryDoc)
-.them(resp =>({id: resp.id, ...resp.data()}))
-},[])
-
-
- */
-
-
-
-
+  const { categoria } = useParams()
 
 
   useEffect(() => {
-    getProductos()
-      .then(response => {
-        if(categoria){
-          setProductos(response.filter((prod)=> prod.categoria === categoria))
-        }else{
-          setProductos(response)
-          
-        }
-      })
-      .finally(()=> setIsLoading(false))
-      
-  }, [categoria])
+    const dbFirestore = getFirestore()
+    const queryCollection = collection(dbFirestore, 'productos')
 
-  return (
-    
-    isLoading ?
+    if (!categoria) {
+      getDocs(queryCollection)
+        .then(res => setProductos(res.docs.map(producto => ({ id: producto.id, ...producto.data() }))))
+        .catch(error => console.log(error))
+        .finally(() => setIsLoading(false))
+    } else {
+      const queryCollectionFiltered = query(
+        queryCollection, 
+        where('categoria','==', categoria),
+        
+    )
+      getDocs(queryCollectionFiltered)
+        .then(res => setProductos(res.docs.map(producto => ({ id: producto.id, ...producto.data() }))))
+        .catch(error => console.log(error))
+        .finally(() => setIsLoading(false))
 
-       <Loading/>
+
+    }
+ 
+
+}, [categoria])
+
+return (
+
+  isLoading ?
+
+    <Loading />
     :
     <ItemList productos={productos} />
-   
-    
-    
 
-    
-  )
+
+
+
+
+)
 }
