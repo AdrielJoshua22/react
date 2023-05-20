@@ -8,7 +8,8 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetail
 import { JsonPlaceHolder } from "./components/Fetch/JsonPlaceHolder";
 /* import { CartWidget } from "./components/CartWidget/cartWidget"; */
 import { CartContextProvider } from "./context/CartContext";
-import { CartContainer } from "./components/Cart/Cart";
+import { CartContainer } from "./components/CartContainer/CartContainer";
+
 
 
 
