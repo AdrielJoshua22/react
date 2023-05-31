@@ -1,4 +1,4 @@
-/* import Container from 'react-bootstrap/Container';
+ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, NavLink } from 'react-router-dom';
@@ -34,8 +34,10 @@ const NavBar = () => {
   )
 }
 
-export default NavBar */
-import React from 'react';
+export default NavBar 
+
+
+/* import React from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -55,3 +57,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+ */

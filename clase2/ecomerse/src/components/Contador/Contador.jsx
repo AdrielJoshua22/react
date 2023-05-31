@@ -37,7 +37,7 @@ export const Contador = ({ stock, inicial, onAdd }) => {
             <Button variant="secondary" onClick={disminuirContador}>-</Button>
             <strong>{contador}</strong>
             <Button variant="secondary" onClick={aumentarContador}>+</Button>
-            <Button variant="primary" onClick={ ()=>{onAdd(onAdd) }}>Agregar al Carrito</Button>
+            <Button variant='primary'  onClick={() => {onAdd(contador);}}>Agregar al Carrito </Button>
         </div>
     )
 }

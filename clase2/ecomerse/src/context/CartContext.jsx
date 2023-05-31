@@ -25,17 +25,13 @@ export const CartContextProvider = ({ children }) => {
         }
     }
 
-  /*   const precioTotal = (cartList) =>{
-    cartList.reduce((total, objeProd) => total += (objeProd.cantidad * objeProd.precio), 0) 
-    
-} */
  
-const precioTotal = () => {
-    return cartList.reduce(
-      (total, producto) => total + producto.precio * producto.cantidad,
-      0
-    );
-  };
+    const precioTotal = () => {
+        return cartList.reduce(
+          (total, producto) => total + producto.precio * producto.cantidad,
+          0
+        );
+      };
         
     const vaciarCarrito = () =>{
         setCartList([])
