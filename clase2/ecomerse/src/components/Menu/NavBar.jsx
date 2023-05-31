@@ -1,4 +1,4 @@
-import Container from 'react-bootstrap/Container';
+/* import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, NavLink } from 'react-router-dom';
@@ -34,4 +34,24 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default NavBar */
+import React from 'react';
+import './Navbar.css';
+
+const Navbar = () => {
+  return (
+    <nav className="navbar">
+      <div className="container">
+        <div className="navbar-brand">MunhoDeco.co</div>
+        <ul className="navbar-menu">
+          <li className="navbar-item"><a href="/">Inicio</a></li>
+          <li className="navbar-item"><a href="/productos">Productos</a></li>
+          <li className="navbar-item"><a href="/servicios">Servicios</a></li>
+          <li className="navbar-item"><a href="/contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;

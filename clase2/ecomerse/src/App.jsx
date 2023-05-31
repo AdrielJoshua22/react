@@ -9,6 +9,8 @@ import { JsonPlaceHolder } from "./components/Fetch/JsonPlaceHolder";
 /* import { CartWidget } from "./components/CartWidget/cartWidget"; */
 import { CartContextProvider } from "./context/CartContext";
 import { CartContainer } from "./components/CartContainer/CartContainer";
+import { Footer } from "./components/Footer/Footer";
+
 
 
 
@@ -45,6 +47,9 @@ function App() {
           </Routes>
         </Router>
       </CartContextProvider>
+
+      <Footer />
+
 
     </>
 
