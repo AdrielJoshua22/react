@@ -1,10 +1,11 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore"
-import { useCartContext , precioTotal } from "../../context/CartContext"
+import { useCartContext  } from "../../context/CartContext"
 import { useState } from "react"
+import Button from 'react-bootstrap/Button';
 
 
 export const CartContainer = () => {
-       const [ cartList  , precioTotal, /* vaciarCarrito,  */ ] = useCartContext()
+       const {cartList  , precioTotal,  vaciarCarrito, eliminarProducto}    = useCartContext()
        const [dataForm , setDataForm] = useState({
         nombre:'',
         telefono:'',
@@ -15,9 +16,9 @@ export const CartContainer = () => {
     const generarCompra = (evt) => {
         evt.preventDefault()
         const order = {}
-        order.comprador = dataForm /* { nombre: "", telefono: "", email: "" } */
+        order.comprador = dataForm 
         order.items = cartList.map(({ nombre, id, precio,cantidad }) => ({ id, nombre, precio,cantidad }))
-         order.total = precioTotal()
+        order.total = precioTotal()
         
         const dbFirestore = getFirestore()
         const orderCollection = collection(dbFirestore, 'ordenes')
@@ -43,12 +44,12 @@ console.log(dataForm)
                 <div className="w-50">
                     <img className="w-25" src={productos.img} alt="imagen" />
                     <label> Precio {productos.precio} -  Cantidad : {productos.cantidad} </label>
-                    <button > X </button>
+                    <Button onClick={()=>eliminarProducto(productos.id)} className="btn- btn-outline-danger" > eliminar producto </Button>
                 </div>
             ))}
-            <h3>Precio total de la compra :{precioTotal()} </h3>
-            {/*  <button onClick={vaciarCarrito} className="btn- btn-outline-danger">vaciar Carrito</button>  */}
-           {/* <button onClick={generarCompra} className="btn- btn-outline-danger">Generar Compra</button>  */}
+            <h3>Precio total de la compra :({precioTotal}) </h3>
+            <Button onClick={vaciarCarrito} className="btn-outline-danger">vaciar Carrito</Button> 
+           
             <form onSubmit={generarCompra}>
                 <input
                     type='text'
