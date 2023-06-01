@@ -1,8 +1,8 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore"
-import { useCartContext } from "../../context/CartContext"
-import { useState,useEffect } from "react"
+import { useState } from "react"
 import Button from 'react-bootstrap/Button';
 import { CartVacio } from "../CarritoVacio/CartVacio";
+import { useCartContext } from "../../Context/CartContext";
 
 
 export const CartContainer = () => {
@@ -39,12 +39,6 @@ export const CartContainer = () => {
     }
     console.log(dataForm)
 
-/*     const [CartVacio, setCartVacio] = useState(false); */
-
- /*    useEffect(() => {
-      setCartVacio(cartList.length === 0);
-    }, [cartList]);
- */
     return (
         <>
             {cartList.length===0 ? <CartVacio/> :(
