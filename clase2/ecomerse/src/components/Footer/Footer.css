@@ -1,6 +1,6 @@
 .footer {
     background-color: #333;
-    padding: 2px 0;
+    padding: 10px 0;
     color: #fff;
   }
   
@@ -17,8 +17,9 @@
   }
   
   .footer-column {
-    flex: 1 1 300px;
-    margin-bottom: 20px;
+    flex: 1 1 1 300px;
+    margin-bottom: 10px;
+    
   }
   
   .footer-column h3 {
@@ -45,9 +46,9 @@
   }
   
   .social-icons a {
-    margin-right: 10px;
+    margin-right: 20px;
     color: #fff;
-    font-size: 18px;
+    font-size: 30px;
   }
   
   .social-icons a:hover {
