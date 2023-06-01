@@ -6,7 +6,7 @@ import {  getDoc, getFirestore, doc,  } from 'firebase/firestore'
 
 export const ItemDetailContainer = () => {
     const [productos, setProducto] = useState([]);
-  /* const [isLoading, setIsLoading] = useState(true)  */
+   const [isLoading, setIsLoading] = useState(true)  
     const { categoria } = useParams()
     const {pid} = useParams()
   
@@ -26,6 +26,8 @@ export const ItemDetailContainer = () => {
 
     return (
         <div>
+            !<isLoading/>?
+            :
                <ItemDetail {...productos} />
         </div>
     )

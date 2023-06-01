@@ -1,4 +1,7 @@
+
  export const Titulo = (props) => {
+
+
 console.log(props) 
     return (
      <div>
