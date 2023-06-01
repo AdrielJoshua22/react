@@ -37,12 +37,13 @@ export const CartContextProvider = ({ children }) => {
       };
         
     
-      const cantidadTotal = () => {
+     const cantidadTotal = () => {
         return cartList.reduce(
           (total, producto) => total + producto.cantidad,
           0
         );
       };
+
     // FUNCION VACIAR CARRITO > ES EJECUTADA EN CartContainer
 
     const vaciarCarrito = () =>{

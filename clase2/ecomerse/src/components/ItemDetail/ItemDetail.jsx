@@ -1,9 +1,8 @@
 import { Contador } from "../Contador/Contador"
 import "./ItemDetail.css"
 import { Link } from "react-router-dom"
-import { useContext, useState } from "react" 
+import { useState, useContext } from "react" 
 import { CartContext } from "../../context/CartContext"
-
 
 
 
@@ -42,5 +41,3 @@ export const ItemDetail = ({ id, nombre, precio, tamaño, img, }) => {
     </>
     )
 }
-
-

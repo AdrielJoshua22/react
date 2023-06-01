@@ -22,7 +22,7 @@ export const ItemDetailContainer = () => {
             .catch(err => console.log(err))
             .finally(() => setIsLoading(false))
 
-    }, [])
+    }, [categoria])
 
 
 
@@ -37,25 +37,4 @@ export const ItemDetailContainer = () => {
     )
 }
 
-
-
-
-
-
-
-
-
-
-/*    const [productos, setProductos] = useState(null);
-
-
-const {pid} = useParams()
-console.log(pid)
-
-useEffect(() => {
-    getUnProducto(pid)
-    .then(res => setProductos(res))
-}, [])
-
-*/
 
