@@ -39,15 +39,15 @@ export const CartContainer = () => {
     }
     console.log(dataForm)
 
-    const [CartVacio, setCartVacio] = useState(false);
+/*     const [CartVacio, setCartVacio] = useState(false); */
 
-    useEffect(() => {
+ /*    useEffect(() => {
       setCartVacio(cartList.length === 0);
     }, [cartList]);
-
+ */
     return (
         <>
-            {!CartVacio? (
+            {cartList.length===0 ? <CartVacio/> :(
             <div>
                 {cartList.map(productos => (
                     <div className="w-50">
@@ -84,11 +84,7 @@ export const CartContainer = () => {
             </div>
 
             )
-            : (
-            <>
-                <CartVacio/>
-            </>
-            )
+         
 }
 </>
     )

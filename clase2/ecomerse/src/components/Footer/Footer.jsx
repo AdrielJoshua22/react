@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
-/* import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'; */
-/*  import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';  */
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 export const Footer = () => {
   return (
@@ -24,11 +24,12 @@ export const Footer = () => {
             <p>Email: info@example.com</p>
           </div>
           <div className="footer-column">
-            <h3>Síguenos en nuestras redes sociales, buscanos en instagram como MunhoDeco.co</h3>
+
+
             <div className="social-icons">
-            {/*   <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
+              <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
               <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
-              <a href="#"><FontAwesomeIcon icon={faInstagram} /></a> */}
+              <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
             </div>
           </div>
         </div>
