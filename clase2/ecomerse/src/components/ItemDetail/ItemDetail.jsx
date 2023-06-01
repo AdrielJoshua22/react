@@ -2,7 +2,7 @@ import { Contador } from "../Contador/Contador"
 import "./ItemDetail.css"
 import { Link } from "react-router-dom"
 import { useState } from "react" 
-import { useCartContext } from "../../context/CartContext"
+import { CartContext } from "../../context/CartContext"
 
 
 
@@ -10,8 +10,7 @@ export const ItemDetail = ({ id, nombre, precio, tamaño, img, }) => {
     
     const [isCant , setIsCant] = useState(false)
 
-    const {addToCart} = useCartContext()
-
+    const {addToCart} = useContext(CartContext)
     const onAdd =(cantidad)=>{
     addToCart({ id, nombre, precio, tamaño, img, cantidad})
     setIsCant(true)

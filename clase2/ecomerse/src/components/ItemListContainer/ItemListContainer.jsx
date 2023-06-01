@@ -40,7 +40,7 @@ export const ItemListContainer = () => {
 
     isLoading ?
 
-      <Loading />
+      <Loading/>
       :
       <ItemList productos={productos} />
 

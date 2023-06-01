@@ -2,11 +2,12 @@ import { addDoc, collection, getFirestore } from "firebase/firestore"
 import { useState } from "react"
 import Button from 'react-bootstrap/Button';
 import { CartVacio } from "../CarritoVacio/CartVacio";
-import { useCartContext } from "../../Context/CartContext";
+import { CartContext } from "../../context/CartContext"
+
 
 
 export const CartContainer = () => {
-    const { cartList, precioTotal, vaciarCarrito, eliminarProducto } = useCartContext()
+    const { cartList, precioTotal, vaciarCarrito, eliminarProducto } = useContext(CartContext)
     const [dataForm, setDataForm] = useState({
         nombre: '',
         telefono: '',
