@@ -1,8 +1,9 @@
 import { Contador } from "../Contador/Contador"
 import "./ItemDetail.css"
 import { Link } from "react-router-dom"
-import { useState } from "react" 
+import { useContext, useState } from "react" 
 import { CartContext } from "../../context/CartContext"
+
 
 
 
