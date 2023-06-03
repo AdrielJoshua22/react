@@ -1,13 +1,21 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore"
-import {  useContext, useState } from "react"
+import { useContext, useState } from "react"
 import Button from 'react-bootstrap/Button';
 import { CartVacio } from "../CarritoVacio/CartVacio";
 import { CartContext } from "../../context/CartContext"
+import Swal from 'sweetalert2';
+
+
+
+
 
 
 
 export const CartContainer = () => {
     const { cartList, precioTotal, vaciarCarrito, eliminarProducto } = useContext(CartContext)
+    const [ordenId, guardarOrdenId] = useState(null)
+  
+
     const [dataForm, setDataForm] = useState({
         nombre: '',
         telefono: '',
@@ -26,8 +34,17 @@ export const CartContainer = () => {
         const orderCollection = collection(dbFirestore, 'ordenes')
 
         addDoc(orderCollection, order)
-            .then(resp => console.log(resp))
-    }
+            .then((resp) => {
+                guardarOrdenId(resp.id);
+                Swal.fire({
+                    icon: "success",
+                    title: "Orden de compra",
+                    text: `El id de su compra es ${ordenId}`,
+                }) 
+               
+            })
+            .catch((err) => console.log(err))
+    };
 
     const handleOnChange = (evt) => {
         console.log('nombre del input', evt.target.name)
@@ -40,48 +57,53 @@ export const CartContainer = () => {
     }
     console.log(dataForm)
 
+
+
     return (
         <>
-            {cartList.length===0 ? <CartVacio/> :(
-            <div>
-                {cartList.map(productos => (
-                    <div className="w-50">
-                        <img className="w-25" src={productos.img} alt="imagen" />
-                        <label> Precio {productos.precio} -  Cantidad : {productos.cantidad} </label>
-                        <Button onClick={() => eliminarProducto(productos.id)} className="btn- btn-outline-danger" > eliminar producto </Button>
-                    </div>
-                ))}
-                <Button onClick={vaciarCarrito} className="btn-outline-danger">vaciar Carrito</Button>
+            {cartList.length === 0 ? <CartVacio /> : (
+                <div>
+                    <h3>Felicidades el envio es gratis! ✨🚚</h3>
+                    <br />
+                  <br />
+                    {cartList.map(productos => (
+                        <div className="w-50">
+                            <img className="w-25" src={productos.img} alt="imagen" />
+                            <label> Precio {productos.precio} -  Cantidad : {productos.cantidad} </label>
+                            <Button onClick={() => eliminarProducto(productos.id)} className="btn- btn-outline-danger" > eliminar producto </Button>
+                        </div>
+                    ))}
+                    <Button onClick={vaciarCarrito} className="btn-outline-danger">vaciar Carrito</Button>
 
-                <h3>Precio total de la compra :{precioTotal()} </h3>
+                    <h3>Precio total de la compra :{precioTotal()} </h3>
 
-                <form onSubmit={generarCompra}>
-                    <input
-                        type='text'
-                        name='nombre'
-                        onChange={handleOnChange}
-                        value={dataForm.nombre}
-                        placeholder="ingrese el nombre" />
-                    <input
-                        type='text'
-                        name='telefono'
-                        onChange={handleOnChange}
-                        value={dataForm.telefono}
-                        placeholder="ingrese el telefono" />
-                    <input
-                        type='text'
-                        name='email'
-                        onChange={handleOnChange}
-                        value={dataForm.email}
-                        placeholder="ingrese el email" />
-                    <button className="btn btn-outline-danger">generar orden</button>
-                </form>
-            </div>
+                    <form onSubmit={generarCompra}>
+                        <input
+                            type='text'
+                            name='nombre'
+                            onChange={handleOnChange}
+                            value={dataForm.nombre}
+                            placeholder="ingrese el nombre" />
+                        <input
+                            type='text'
+                            name='telefono'
+                            onChange={handleOnChange}
+                            value={dataForm.telefono}
+                            placeholder="ingrese el telefono" />
+                        <input
+                            type='text'
+                            name='email'
+                            onChange={handleOnChange}
+                            value={dataForm.email}
+                            placeholder="ingrese el email" />
+                        <button className="btn btn-outline-danger">generar orden</button>
+                    </form>
+                </div>
 
             )
-         
-}
-</>
+
+            }
+        </>
     )
 }
 
