@@ -13,7 +13,7 @@
   .footer-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   
   .footer-column {
@@ -23,7 +23,7 @@
   }
   
   .footer-column h3 {
-    color: #fff;
+    color: #fcf3f3;
   }
   
   .footer-column ul {
@@ -52,6 +52,6 @@
   }
   
   .social-icons a:hover {
-    color: #ccc;
+    color: #1e3fd3;
   }
   
