@@ -1,43 +1,43 @@
-import { Contador } from "../Contador/Contador"
-import "./ItemDetail.css"
-import { Link } from "react-router-dom"
-import { useState, useContext } from "react" 
-import { CartContext } from "../../context/CartContext"
+ import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
+import { Contador } from '../Contador/Contador';
+import './ItemDetail.css';
 
+ export const ItemDetail = ({ id, nombre, precio, tamaño, img }) => {
+  const [isCant, setIsCant] = useState(false);
+  const { addToCart } = useContext(CartContext);
 
+  const onAdd = cantidad => {
+    addToCart({ id, nombre, precio, tamaño, img, cantidad });
+    setIsCant(true);
+  };
 
-export const ItemDetail = ({ id, nombre, precio, tamaño, img, }) => {
-    
-    const [isCant , setIsCant] = useState(false)
+  return (
+    <div className="item-detail-container">
+      <div className="item-detail-info">
+        <h2 className="item-detail-title">NOMBRE: {nombre}</h2>
+        <h3 className="item-detail-price">Precio: {precio}</h3>
+        <h3 className="item-detail-size">Tamaño: {tamaño}</h3>
+        <p className="item-detail-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa earum recusandae maxime perferendis dolorem suscipit magnam illo vitae, sunt natus?
+        </p>
+        <img className="item-detail-image" src={img} alt="imagen" />
+      </div>
 
-    const {addToCart} = useContext(CartContext)
-    const onAdd =(cantidad)=>{
-    addToCart({ id, nombre, precio, tamaño, img, cantidad})
-    setIsCant(true)
-}
-    return (
-      <>
-        <div className="contenedorItem">
-            <h2>NOMBRE: {nombre} </h2>
-            <h3>Precio: {precio} </h3>
-            <h3>Tamaño: {tamaño} </h3>
-            <h3>Id: {id} </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa earum recusandae maxime perferendis dolorem suscipit magnam illo vitae, sunt natus?</p>
-            <img  src= {img } />
-           
-           
-   {
-                        !isCant ? 
-                        <Contador stock={10} inicial={1} onAdd={onAdd}/>
-                        :
-                        <>    
-                         <Link to={'/cart'} className="btn btn-outline-danger">Terminar compra</Link>
-                         <Link to={'/'} className="btn btn-outline-success">Seguir la compra</Link>
-                        </>
-                    }
- 
-
+      {!isCant ? (
+        <Contador stock={10} inicial={1} onAdd={onAdd} />
+      ) : (
+        <div className="item-detail-buttons">
+          <Link to="/cart" className="btn btn-outline-danger">
+            Terminar compra
+          </Link>
+          <Link to="/" className="btn btn-outline-success">
+            Seguir la compra
+          </Link>
         </div>
-    </>
-    )
-}
+      )}
+    </div>
+  );
+}; 
+

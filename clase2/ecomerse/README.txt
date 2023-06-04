@@ -1,4 +1,4 @@
-Buenas , les dejo mi proyecto de react
+Buenas , profe Federico dejo mi proyecto de react
 
 en el se puede apreciar un sitio de venta de cuadros.
 
