@@ -10,7 +10,7 @@ export const CartContextProvider = ({ children }) => {
 
     // FUNCION AGREGAR A CARRITO > ES EJECUTADA EN CartContainer
     
-    const addToCart = (newProduct) => {
+/*     const addToCart = (newProduct) => {
 
         const item1 = cartList.findIndex(productos => newProduct.id === productos.id)
 
@@ -25,6 +25,22 @@ export const CartContextProvider = ({ children }) => {
             setCartList([...cartList])
         }
     }
+ */
+
+    const addToCart=(item, cantidad) =>{
+      console.log(item,cantidad)
+      if(isInCart(item.id)){
+        setCartList (cartList.map(productos =>{
+          return productos.id === item.id ?{...productos,cantidad:productos.cantidad + cantidad} : productos
+        }));
+  
+      }else{
+        setCartList ([...cartList,{...item,cantidad}]);
+      }
+    }
+
+    const isInCart = (id) =>
+    cartList.find((productos) => productos.id === id) ? true : false;
 
 
  // FUNCION PRECIOTOTAL ES LA SUMA DE TODOS LOS PRODUCTOS DEL CARRITO TENIENDO EN CUENTA LAS CANTIDADES. > ES EJECUTADA EN CartContainer

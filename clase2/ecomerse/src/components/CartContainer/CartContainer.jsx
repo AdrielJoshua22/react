@@ -39,7 +39,7 @@ export const CartContainer = () => {
                 Swal.fire({
                     icon: "success",
                     title: "Orden de compra",
-                    text: `El id de su compra es ${ordenId}`,
+                    text: `El id de su compra es ${resp.id}`,
                 })
 
             })
@@ -56,74 +56,6 @@ export const CartContainer = () => {
 
     }
     console.log(dataForm)
-
-
-
-/*     return (
-        <>
-            {cartList.length === 0 ? <CartVacio /> : (
-                <div>
-                    <h3 className="shipping-title">¡Felicidades, el envío es gratis! ✨🚚</h3>
-
-                    <div className="cart-items-container">
-                        {cartList.map(productos => (
-                            <div className="cart-item" key={productos.id}>
-                                <img className="cart-item-image" src={productos.img} alt="imagen" />
-                                <div className="cart-item-details"></div>
-
-                                
-                                    <div className="cart-items-container">
-                                        {cartList.map(productos => (
-                                            <div className="cart-item" key={productos.id}>
-
-                                                <div className="cart-items-container">
-                                                    {cartList.map(productos => (
-                                                        <div className="cart-item" key={productos.id}>
-                                                            <img className="cart-item-image" src={productos.img} alt="imagen" />
-                                                            <div className="cart-item-details">
-                                                                <label className="cart-item-price">Precio: {productos.precio}</label>
-                                                                <label className="cart-item-quantity">Cantidad: {productos.cantidad}</label>
-                                                            </div>
-                                                            <button onClick={() => eliminarProducto(productos.id)} className="cart-item-remove">Eliminar producto</button>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                                <button onClick={vaciarCarrito} className="empty-cart-btn">Vaciar carrito</button>
-                                                <h3 className="total-price">Precio total de la compra: {precioTotal()}</h3>
-
-
-
-                                                <form onSubmit={generarCompra}>
-                                                    <input
-                                                        type='text'
-                                                        name='nombre'
-                                                        onChange={handleOnChange}
-                                                        value={dataForm.nombre}
-                                                        placeholder="ingrese el nombre" />
-                                                    <input
-                                                        type='text'
-                                                        name='telefono'
-                                                        onChange={handleOnChange}
-                                                        value={dataForm.telefono}
-                                                        placeholder="ingrese el telefono" />
-                                                    <input
-                                                        type='text'
-                                                        name='email'
-                                                        onChange={handleOnChange}
-                                                        value={dataForm.email}
-                                                        placeholder="ingrese el email" />
-                                                    <button className="btn btn-outline-danger">generar orden</button>
-                                                </form>
-                                            </div>
-
-                                        )
-
-            }
-                                    </>
-                                    )
-}
-
- */
 
 return (
     <>
@@ -178,3 +110,4 @@ return (
     </>
   );
 }  
+

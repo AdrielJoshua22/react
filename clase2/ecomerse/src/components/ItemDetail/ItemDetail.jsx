@@ -8,11 +8,16 @@ import './ItemDetail.css';
   const [isCant, setIsCant] = useState(false);
   const { addToCart } = useContext(CartContext);
 
-  const onAdd = cantidad => {
+/*   const onAdd = cantidad => {
     addToCart({ id, nombre, precio, tamaño, img, cantidad });
     setIsCant(true);
   };
+ */
 
+  const onAdd = (cantidad) => {
+    addToCart({ id, nombre, precio, tamaño, img, cantidad },cantidad);
+    setIsCant(true);
+  };
   return (
     <div className="card">
       <div className="card-body">
