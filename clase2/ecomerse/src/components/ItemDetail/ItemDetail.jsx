@@ -8,11 +8,6 @@ import './ItemDetail.css';
   const [isCant, setIsCant] = useState(false);
   const { addToCart } = useContext(CartContext);
 
-/*   const onAdd = cantidad => {
-    addToCart({ id, nombre, precio, tamaño, img, cantidad });
-    setIsCant(true);
-  };
- */
 
   const onAdd = (cantidad) => {
     addToCart({ id, nombre, precio, tamaño, img, cantidad },cantidad);
@@ -30,7 +25,7 @@ import './ItemDetail.css';
         <img className="card-image" src={img} alt="imagen" />
 
         {!isCant ? (
-          <Contador stock={10} inicial={1} onAdd={onAdd} />
+          <Contador stock={99} inicial={1} onAdd={onAdd} />
         ) : (
           <div className="card-buttons">
             <Link to="/cart" className="btn btn-outline-danger">
