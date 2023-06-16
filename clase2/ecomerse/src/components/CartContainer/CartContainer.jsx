@@ -80,7 +80,7 @@ export const CartContainer = () => {
           </div>
 
           <button onClick={vaciarCarrito} className="empty-cart-btn">Vaciar carrito</button>
-          <h3 className="total-price">Precio total de la compra: {precioTotal()}</h3>
+          <h2 className="total-price">Precio total de la compra: {precioTotal()}</h2>
 
           <form onSubmit={generarCompra}>
             <input
