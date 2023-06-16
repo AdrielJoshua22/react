@@ -1,70 +1,71 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore"
-import { useContext, useState } from "react"
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { useContext, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import { CartVacio } from "../CarritoVacio/CartVacio";
-import { CartContext } from "../../context/CartContext"
+import { CartContext } from "../../context/CartContext";
 import Swal from 'sweetalert2';
 import './CartContainer.css';
 
-
-
-
-
-
 export const CartContainer = () => {
-    const { cartList, precioTotal, vaciarCarrito, eliminarProducto } = useContext(CartContext)
-    const [ordenId, guardarOrdenId] = useState(null)
+  const { cartList, precioTotal, vaciarCarrito, eliminarProducto } = useContext(CartContext);
+  const [ordenId, guardarOrdenId] = useState(null);
 
+  const [dataForm, setDataForm] = useState({
+    nombre: '',
+    telefono: '',
+    email: '',
+    confirmaEmail: ''
+  });
 
-    const [dataForm, setDataForm] = useState({
-        nombre: '',
-        telefono: '',
-        email: ''
+  const generarCompra = (evt) => {
+    evt.preventDefault();
+    if (dataForm.email !== dataForm.confirmaEmail) {
 
-    })
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Los correos electrónicos no coinciden. Por favor, verifique.',
+      });
+      return;
+    }
 
-    const generarCompra = (evt) => {
-        evt.preventDefault()
-        const order = {}
-        order.comprador = dataForm
-        order.items = cartList.map(({ nombre, id, precio, cantidad }) => ({ id, nombre, precio, cantidad }))
-        order.total = precioTotal()
-
-        const dbFirestore = getFirestore()
-        const orderCollection = collection(dbFirestore, 'ordenes')
-
-        addDoc(orderCollection, order)
-            .then((resp) => {
-                guardarOrdenId(resp.id);
-                Swal.fire({
-                    icon: "success",
-                    title: "Orden de compra",
-                    text: `El id de su compra es ${resp.id}`,
-                })
-
-            })
-            .catch((err) => console.log(err))
+    const order = {
+      comprador: dataForm,
+      items: cartList.map(({ nombre, id, precio, cantidad }) => ({ id, nombre, precio, cantidad })),
+      total: precioTotal()
     };
 
-    const handleOnChange = (evt) => {
-        console.log('nombre del input', evt.target.name)
-        console.log('valor del input', evt.target.value)
-        setDataForm({
-            ...dataForm,
-            [evt.target.name]: evt.target.value
-        })
+    const dbFirestore = getFirestore();
+    const orderCollection = collection(dbFirestore, 'ordenes');
 
-    }
-    console.log(dataForm)
+    addDoc(orderCollection, order)
+      .then((resp) => {
+        guardarOrdenId(resp.id);
+        Swal.fire({
+          icon: "success",
+          title: "Orden de compra",
+          text: `El id de su compra es ${resp.id}`,
+        });
+        vaciarCarrito();
+      })
+      .catch((err) => console.log(err));
+  };
 
-return (
+  const handleOnChange = (evt) => {
+    setDataForm({
+      ...dataForm,
+      [evt.target.name]: evt.target.value
+    });
+  };
+
+  return (
     <>
       {cartList.length === 0 ? (
         <CartVacio />
       ) : (
         <div>
           <h3 className="shipping-title">¡Felicidades, el envío es gratis! ✨🚚</h3>
-  
+
           <div className="cart-items-container">
             {cartList.map(producto => (
               <div className="cart-item" key={producto.id}>
@@ -77,37 +78,48 @@ return (
               </div>
             ))}
           </div>
-  
+
           <button onClick={vaciarCarrito} className="empty-cart-btn">Vaciar carrito</button>
           <h3 className="total-price">Precio total de la compra: {precioTotal()}</h3>
-  
+
           <form onSubmit={generarCompra}>
             <input
               type="text"
               name="nombre"
+              required
+              placeholder="Ingrese el nombre"
               onChange={handleOnChange}
               value={dataForm.nombre}
-              placeholder="Ingrese el nombre"
             />
             <input
-              type="text"
+              type="tel"
               name="telefono"
+              required
+              pattern="[0-9]{10}"
+              placeholder="Ingrese el teléfono (sin 0 y sin 15)"
               onChange={handleOnChange}
               value={dataForm.telefono}
-              placeholder="Ingrese el teléfono"
             />
             <input
-              type="text"
+              type="email"
               name="email"
+              required
+              placeholder="Ingrese el correo electrónico"
               onChange={handleOnChange}
               value={dataForm.email}
-              placeholder="Ingrese el email"
             />
-            <button className="btn btn-outline-danger" type="submit">Generar orden</button>
+            <input
+              type="email"
+              name="confirmaEmail"
+              required
+              placeholder="Repita el correo electrónico"
+              onChange={handleOnChange}
+              value={dataForm.confirmaEmail}
+            />
+            <button type="submit">Generar orden</button>
           </form>
         </div>
       )}
     </>
   );
-}  
-
+};

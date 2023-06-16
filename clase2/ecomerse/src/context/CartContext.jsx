@@ -10,22 +10,6 @@ export const CartContextProvider = ({ children }) => {
 
     // FUNCION AGREGAR A CARRITO > ES EJECUTADA EN CartContainer
     
-/*     const addToCart = (newProduct) => {
-
-        const item1 = cartList.findIndex(productos => newProduct.id === productos.id)
-
-        if (item1 === -1) {
-            setCartList([
-                ...cartList,
-                newProduct
-            ])
-
-        } else {
-            cartList[item1].precio = newProduct.precio
-            setCartList([...cartList])
-        }
-    }
- */
 
     const addToCart=(item, cantidad) =>{
       console.log(item,cantidad)
@@ -52,7 +36,7 @@ export const CartContextProvider = ({ children }) => {
         );
       };
         
-    
+    // FUNCION PARA SUMAR LA CANTIDAD DE ITEMS EN EL CARRITO 
      const cantidadTotal = () => {
         return cartList.reduce(
           (total, producto) => total + producto.cantidad,
@@ -80,7 +64,7 @@ export const CartContextProvider = ({ children }) => {
             precioTotal,
             vaciarCarrito,
             eliminarProducto,
-            cantidadTotal   
+            cantidadTotal, 
               }}>
 
 
