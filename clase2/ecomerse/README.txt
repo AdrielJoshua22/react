@@ -1,4 +1,4 @@
-Buenas , profe Federico dejo mi proyecto de react
+Buenas , este es mi  proyecto de react
 
 en el se puede apreciar un sitio de venta de cuadros.
 donde tiene una navegacion de dos estilos, minimalista y flores. utilize reactboostrap
@@ -24,6 +24,9 @@ ademas las librerias extras que use en el proyecto son :
     "react-bootstrap": "^2.7.2", //ESTILO 
     "sweetalert2": "^11.7.10" // ALERTAS PARA ORDEN GENERADA, Y PARA DATO INCORRECTO EN MAIL
 
+
+
+https://react-five-murex.vercel.app/
 
 
 
